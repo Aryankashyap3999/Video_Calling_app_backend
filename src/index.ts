@@ -15,6 +15,13 @@ const io = new Server(server, {
     }
 });
 
+app.get("/ping", (req, res) => {
+    console.log(req);
+    res.json({
+        msg: "pong"
+    });
+});
+
 io.on("connection", (socket) => {
     console.log("New user connected");
     roomHAndler(socket);
